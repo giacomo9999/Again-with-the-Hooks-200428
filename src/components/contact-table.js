@@ -16,7 +16,7 @@ export default function ContactTable() {
     setSelectedId(null);
   };
 
-  const rows = contacts.map((contact) => (
+  const rows = state.contacts.map((contact) => (
     <tr
       key={contact.id}
       onClick={() => setSelectedId(contact.id)}

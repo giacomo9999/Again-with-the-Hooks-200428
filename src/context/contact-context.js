@@ -32,5 +32,10 @@ const reducer = (state, action) => {
 
 export const ContactContextProvider = (props) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return <ContactContext.Provider>{props.children}</ContactContext.Provider>;
+  return (
+    <ContactContext.Provider value={[state, dispatch]}>
+      {props.children}
+    </ContactContext.Provider>
+  );
 };
+
