@@ -16,17 +16,24 @@ export default function ContactTable() {
     setSelectedId(null);
   };
 
+  console.log("Contacts:", state.contacts);
+
   const rows = state.contacts.map((contact) => (
     <tr
       key={contact.id}
-      onClick={() => setSelectedId(contact.id)}
-      active={contact.id === selectedId}
+    //   onClick={() => setSelectedId(contact.id)}
+    //   active={contact.id === selectedId}
     >
       <td>{contact.id}</td>
       <td>{contact.name}</td>
       <td>{contact.email}</td>
+      <td>
+        <button onClick={() => onRemoveUser}>Remove</button>
+      </td>
     </tr>
   ));
+
+  console.log("Rows:", rows);
 
   return (
     <div>
@@ -40,9 +47,7 @@ export default function ContactTable() {
         </thead>
         <tbody>{rows}</tbody>
         <tfoot>
-          <tr>
-            <td onClick={onRemoveUser}>Remove</td>
-          </tr>
+          <tr></tr>
         </tfoot>
       </table>
     </div>
